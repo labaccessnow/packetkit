@@ -3,7 +3,7 @@
          so without this line every release build has no network at all. -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="Field Kit"
+        android:label="PacketKit"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

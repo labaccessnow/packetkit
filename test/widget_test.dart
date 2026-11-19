@@ -32,7 +32,7 @@ void main() {
     await tester.pumpAndSettle();
 
     // Sidebar title and the open tool's title both start below the bar.
-    expect(tester.getTopLeft(find.text('Field ')).dy, greaterThanOrEqualTo(32));
+    expect(tester.getTopLeft(find.text('Packet')).dy, greaterThanOrEqualTo(32));
     expect(
         tester.getTopLeft(find.text('Subnet calculator / VLSM splitter')).dy,
         greaterThanOrEqualTo(32));

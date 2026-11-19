@@ -1,4 +1,6 @@
-# Field Kit
+# PacketKit
+
+*Formerly Field Kit. Same app, new name from v1.2.1.*
 
 A free app with the small network and security tools you keep opening
 sketchy websites for — subnet math, CVSS scoring, JWT decoding, defanging IOCs,
@@ -60,7 +62,7 @@ These builds aren't code-signed yet, so the first launch asks for a click:
   That's it, once.
 - **macOS** — right-click the app → **Open** (macOS 14 and earlier), or go to
   **System Settings → Privacy & Security** and hit **Open Anyway** (macOS 15+).
-  Terminal people: `xattr -dr com.apple.quarantine "Field Kit.app"` does the
+  Terminal people: `xattr -dr com.apple.quarantine "PacketKit.app"` does the
   same thing.
 
 ## What talks to the network
@@ -77,7 +79,7 @@ run one) an IPv4 address is reached through the network's NAT64 gateway, and
 finding it takes one resolver question for `ipv4only.arpa`.
 
 The same thing in policy form:
-[privacy policy](https://netopsfieldnotes.com/tools/fieldkit/privacy/).
+[privacy policy](https://netopsfieldnotes.com/tools/packetkit/privacy/).
 
 ## Building from source
 

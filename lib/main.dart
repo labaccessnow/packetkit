@@ -14,7 +14,7 @@ class FieldKitApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Field Kit',
+      title: 'PacketKit',
       debugShowCheckedModeBanner: false,
       theme: fieldKitTheme(),
       home: const Shell(),

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Build, package and checksum a distributable Linux release of Field Kit.
+# Build, package and checksum a distributable Linux release of PacketKit.
 #
 # Produces, under dist/:
 #   fieldkit_<version>_amd64.deb           desktop-integrated install (Debian/Ubuntu/Mint/Pop!_OS)
-#   FieldKit-<version>-linux-x64.tar.gz    portable bundle for everything else
+#   PacketKit-<version>-linux-x64.tar.gz    portable bundle for everything else
 #   SHA256SUMS.linux                       checksums for both
 #
 # Run it on a Linux host that already builds Flutter desktop. Nothing here needs
@@ -28,7 +28,7 @@ BUNDLE="build/linux/x64/release/bundle"
 
 DIST="$REPO_ROOT/dist"
 STAGE="$DIST/stage"
-rm -rf "$STAGE" "$DIST/${BIN_NAME}_"*.deb "$DIST/FieldKit-"*"-linux-x64.tar.gz" "$DIST/SHA256SUMS.linux"
+rm -rf "$STAGE" "$DIST/${BIN_NAME}_"*.deb "$DIST/PacketKit-"*"-linux-x64.tar.gz" "$DIST/SHA256SUMS.linux"
 mkdir -p "$DIST"
 
 # ---------------------------------------------------------------- staging tree
@@ -49,7 +49,7 @@ install -Dm644 "$REPO_ROOT/LICENSE" "$STAGE/usr/share/doc/$BIN_NAME/copyright"
 
 # ------------------------------------------- prune provably-unused native bits
 # Some plugins drag in libdartjni.so (Android bindings) which links libjvm.so
-# and would make a JRE a dependency of a desktop app. Field Kit shouldn't have
+# and would make a JRE a dependency of a desktop app. PacketKit shouldn't have
 # it at all — but check-and-prune rather than assume, so this stays correct if
 # a future plugin changes the picture.
 JNI="$STAGE/opt/$BIN_NAME/lib/libdartjni.so"
@@ -146,7 +146,7 @@ dpkg-deb --root-owner-group --build "$STAGE" "$DEB" >/dev/null
 # Same payload as the .deb — copied from the staged tree, not the raw build
 # output, so both artefacts carry identical (pruned) contents — plus an
 # installer for distros that are not Debian-derived.
-TARROOT="$DIST/FieldKit-${VERSION}-linux-x64"
+TARROOT="$DIST/PacketKit-${VERSION}-linux-x64"
 install -d "$TARROOT"
 cp -r "$STAGE/opt/$BIN_NAME/." "$TARROOT/"
 install -d "$TARROOT/share"
@@ -156,7 +156,7 @@ cp "$REPO_ROOT/LICENSE" "$TARROOT/"
 
 cat > "$TARROOT/install.sh" <<EOF
 #!/usr/bin/env bash
-# Install Field Kit into your home directory. No root, nothing outside ~/.local.
+# Install PacketKit into your home directory. No root, nothing outside ~/.local.
 set -euo pipefail
 cd "\$(dirname "\$0")"
 PREFIX="\${PREFIX:-\$HOME/.local}"
@@ -179,7 +179,7 @@ command -v gtk-update-icon-cache >/dev/null 2>&1 && \\
 command -v update-desktop-database >/dev/null 2>&1 && \\
   update-desktop-database -q "\$PREFIX/share/applications" || true
 
-echo "Field Kit installed to \$PREFIX"
+echo "PacketKit installed to \$PREFIX"
 case ":\$PATH:" in
   *":\$PREFIX/bin:"*) ;;
   *) echo "note: \$PREFIX/bin is not on your PATH" ;;
@@ -194,11 +194,11 @@ APP_ID="$APP_ID"
 rm -rf "\$PREFIX/lib/$BIN_NAME" "\$PREFIX/bin/$BIN_NAME" \\
        "\$PREFIX/share/applications/\$APP_ID.desktop"
 find "\$PREFIX/share/icons/hicolor" -name "\$APP_ID.*" -delete 2>/dev/null || true
-echo "Field Kit removed from \$PREFIX"
+echo "PacketKit removed from \$PREFIX"
 EOF
 chmod +x "$TARROOT/install.sh" "$TARROOT/uninstall.sh"
 
-TARBALL="$DIST/FieldKit-${VERSION}-linux-x64.tar.gz"
+TARBALL="$DIST/PacketKit-${VERSION}-linux-x64.tar.gz"
 tar -C "$DIST" -czf "$TARBALL" "$(basename "$TARROOT")"
 
 # ----------------------------------------------------------------- checksums

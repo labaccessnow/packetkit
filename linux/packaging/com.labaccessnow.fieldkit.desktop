@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Field Kit
+Name=PacketKit
 GenericName=Network and security tools
 Comment=Subnet math, CVSS scoring, JWT decoding, defanging, cert checks — all local
 Exec=fieldkit

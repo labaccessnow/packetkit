@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the Field Kit app icon for every platform from one drawing.
+"""Generate the PacketKit app icon for every platform from one drawing.
 
 A cyan shield (the SecOps side) holding a green terminal prompt (the NetOps
 side) on the shared dark chrome. Renders at 1024 then downscales, so the

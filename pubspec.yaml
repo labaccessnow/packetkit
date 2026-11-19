@@ -1,5 +1,5 @@
 name: fieldkit
-description: "Field Kit — free network & security tools for engineers. Runs entirely on your machine."
+description: "PacketKit — free network & security tools for engineers. Runs entirely on your machine."
 publish_to: 'none'
 
 version: 1.2.1+4

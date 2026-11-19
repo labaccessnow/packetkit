@@ -6,7 +6,7 @@ import 'tools.dart';
 import 'ui/common.dart';
 
 const appVersion = '1.2.1';
-const privacyUrl = 'https://netopsfieldnotes.com/tools/fieldkit/privacy/';
+const privacyUrl = 'https://netopsfieldnotes.com/tools/packetkit/privacy/';
 const _sidebar = Color(0xFF081020);
 
 class Shell extends StatefulWidget {
@@ -38,7 +38,7 @@ class _ShellState extends State<Shell> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(18, 18, 18, 10),
                     child: Row(children: [
-                      const Text('Field ',
+                      const Text('Packet',
                           style: TextStyle(
                               fontSize: 19, fontWeight: FontWeight.w800)),
                       const Text('Kit',
@@ -105,7 +105,7 @@ class _ShellState extends State<Shell> {
       appBar: AppBar(
         backgroundColor: _sidebar,
         title: const Row(mainAxisSize: MainAxisSize.min, children: [
-          Text('Field ', style: TextStyle(fontWeight: FontWeight.w800)),
+          Text('Packet', style: TextStyle(fontWeight: FontWeight.w800)),
           Text('Kit',
               style: TextStyle(fontWeight: FontWeight.w800, color: netGreen)),
         ]),
